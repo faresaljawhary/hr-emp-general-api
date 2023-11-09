@@ -262,7 +262,7 @@ async function checkUserDuplication(params) {
   const { userId } = params;
 
   try {
-    const rawData = await readFile(`./usersData/user_data.json`, "utf8");
+    const rawData = await readFile(`/user_data.json`, "utf8");
     const usersArray = JSON.parse(rawData)?.users;
     const checkIfExist = usersArray?.some(
       (user) => user?.National_Num === userId
