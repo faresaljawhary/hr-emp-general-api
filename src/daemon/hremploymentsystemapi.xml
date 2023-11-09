@@ -1,0 +1,31 @@
+<service>
+	<id>hremploymentsystemapi.exe</id>
+	<name>Hr Employment System Api</name>
+	<description>Hr Employment System Api here.</description>
+	<executable>C:\Program Files\nodejs\node.exe</executable>
+	<argument>--harmony</argument>
+	<argument>C:\HR_Emplyment_System\final\HR_EMP_Sysem_Api\node_modules\node-windows\lib\wrapper.js</argument>
+	<argument>--file</argument>
+	<argument>C:\HR_Emplyment_System\final\HR_EMP_Sysem_Api\src\index.js</argument>
+	<argument>--scriptoptions=</argument>
+	<argument>--log</argument>
+	<argument>Hr Employment System Api wrapper</argument>
+	<argument>--grow</argument>
+	<argument>0.25</argument>
+	<argument>--wait</argument>
+	<argument>1</argument>
+	<argument>--maxrestarts</argument>
+	<argument>3</argument>
+	<argument>--abortonerror</argument>
+	<argument>n</argument>
+	<argument>--stopparentfirst</argument>
+	<argument>undefined</argument>
+	<logmode>rotate</logmode>
+	<stoptimeout>30sec</stoptimeout>
+	<serviceaccount>
+		<domain>JOAMMVMDEV01</domain>
+		<user>LocalSystem</user>
+		<password></password>
+	</serviceaccount>
+	<workingdirectory>C:\HR_Emplyment_System\final\HR_EMP_Sysem_Api</workingdirectory>
+</service>
