@@ -21,7 +21,7 @@ function decrypt(encryptedText) {
 }
 
 const signInAndCheckHrGroup = async (username, password) => {
-  const rawData = await readFile(`./hr-users/hr-users.json`, "utf8");
+  const rawData = await readFile(`hr-users.json`, "utf8");
   const jsonData = JSON.parse(rawData)?.users?.find(
     (user) => user.username === username
   );
