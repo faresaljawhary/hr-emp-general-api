@@ -195,7 +195,7 @@ async function getAllApplicationsData(req) {
   } = query;
   try {
     // Load your JSON data here (assuming you already have it loaded as an object)
-    const rawData = await readFile(`usersData/user_data.json`, "utf8");
+    const rawData = await readFile(`./usersData/user_data.json`, "utf8");
     const jsonData = JSON.parse(rawData);
     // Filter data based on query parameters
     const filteredData = jsonData.users.filter((user) => {
@@ -230,7 +230,7 @@ async function updateDownloadValueForUser(params, body) {
   const { usersIds } = body;
 
   try {
-    const rawData = await readFile(`usersData/user_data.json`, "utf8");
+    const rawData = await readFile(`./usersData/user_data.json`, "utf8");
     const usersArray = JSON.parse(rawData)?.users;
     for (const user of usersArray) {
       if (usersIds.includes(user.UUID)) {
@@ -262,7 +262,7 @@ async function checkUserDuplication(params) {
   const { userId } = params;
 
   try {
-    const rawData = await readFile(`usersData/user_data.json`, "utf8");
+    const rawData = await readFile(`./usersData/user_data.json`, "utf8");
     const usersArray = JSON.parse(rawData)?.users;
     const checkIfExist = usersArray?.some(
       (user) => user?.National_Num === userId
