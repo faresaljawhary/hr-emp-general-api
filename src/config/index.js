@@ -3,7 +3,7 @@ dotenv.config();
 const config = {
   app: {
     name: "hr-employment-api",
-    port: process.env.PORT,
+    port: process.env.PORT || 4000,
     env: process.env.NODE_ENV || "development",
   },
   activeDirectory: {
