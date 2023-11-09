@@ -3,6 +3,9 @@ import jwt from "jsonwebtoken";
 import config from "./../config/index.js";
 import crypto from "crypto";
 import { readFile } from "fs/promises";
+import { fileURLToPath } from "url";
+import { dirname, resolve } from "path";
+
 import { error } from "console";
 
 function decrypt(encryptedText) {
@@ -21,7 +24,11 @@ function decrypt(encryptedText) {
 }
 
 const signInAndCheckHrGroup = async (username, password) => {
-  const rawData = await readFile(`./hr-users.json`, "utf8");
+  const modulePath = dirname(fileURLToPath(import.meta.url));
+  const rawData = await readFile(
+    resolve(modulePath, "../hr-users.json"),
+    "utf8"
+  );
   const jsonData = JSON.parse(rawData)?.users?.find(
     (user) => user.username === username
   );
