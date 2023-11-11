@@ -10,16 +10,9 @@ import celebrateErrorHandler from "./utils/celebrateError.js";
 const app = express();
 const { port } = config.app;
 
-// CORS options - Allow specific origin, methods, and headers
-const corsOptions = {
-  origin: 'https://npc-hr-general-employment.vercel.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-};
 
 // Applying CORS middleware at the beginning
-app.use(cors(corsOptions));
+app.use(cors());
 
 // Body parser middleware
 app.use(bodyParser.json());
