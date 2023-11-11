@@ -21,14 +21,12 @@ function decrypt(encryptedText) {
   decryptedText += decipher.final("utf8");
   return decryptedText;
 }
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+
 
 const signInAndCheckHrGroup = async (username, password) => {
-  const filePath = join(__dirname, '../hr-users.json');
 
   try {
-    const rawData = await readFile(filePath, 'utf8');
+    const rawData = await readFile('./hr-users.json', 'utf8');
     const jsonData = JSON.parse(rawData)?.users?.find(
       (user) => user.username === username
     );
