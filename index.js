@@ -11,7 +11,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static("uploads"));
-app.use(express.static("user_data.json"));
+app.use(express.static("user-data"));
 
 // Add a route for direct download
 app.get("/download/:filename", (req, res) => {
