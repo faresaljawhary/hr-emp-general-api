@@ -35,15 +35,6 @@ app.use("/api/v1", router);
 // Error handler for celebrate validation errors
 app.use(celebrateErrorHandler);
 
-// CORS options - Allow all origins, methods, and headers for demonstration purposes
-const corsOptions = {
-  origin: 'https://npc-hr-general-employment.vercel.app',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  optionsSuccessStatus: 204,
-};
-
-app.use(cors(corsOptions));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
