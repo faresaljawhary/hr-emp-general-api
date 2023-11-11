@@ -37,7 +37,7 @@ app.use(celebrateErrorHandler);
 
 // CORS options - Allow all origins, methods, and headers for demonstration purposes
 const corsOptions = {
-  origin: '*',
+  origin: 'https://npc-hr-general-employment.vercel.app',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
   optionsSuccessStatus: 204,
