@@ -8,9 +8,14 @@ import fs from "fs";
 import celebrateErrorHandler from "./utils/celebrateError.js";
 
 const app = express();
-app.use(cors());
+const { port } = config.app;
+
+// Body parser middleware
 app.use(bodyParser.json());
+
+// Serve static files from the "uploads" directory
 app.use(express.static("uploads"));
+
 // Add a route for direct download
 app.get("/download/:filename", (req, res) => {
   const filename = req.params.filename;
@@ -23,9 +28,22 @@ app.get("/download/:filename", (req, res) => {
     }
   });
 });
+
+// API routes
 app.use("/api/v1", router);
+
+// Error handler for celebrate validation errors
 app.use(celebrateErrorHandler);
-const { port } = config.app;
+
+// CORS options - Allow all origins, methods, and headers for demonstration purposes
+const corsOptions = {
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
