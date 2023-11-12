@@ -10,10 +10,6 @@ export const addGeneralApplication = async (req, res, next) => {
 };
 export const getAllGeneralApplication = async (req, res, next) => {
   try {
-    res.header(
-      "Access-Control-Allow-Origin",
-      "https://npc-hr-general-employment.onrender.com"
-    );
     const result = await generalService.getAllApplicationsData(req);
     res.status(result.statusCode).send(result);
   } catch (err) {

@@ -10,13 +10,8 @@ import celebrateErrorHandler from "./utils/celebrateError.js";
 const app = express();
 const { port } = config.app;
 
-const corsOptions = {
-  origin: "https://npc-hr-general-employment.onrender.com",
-  credentials: true,
-  methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
-};
-
-app.use(cors(corsOptions));
+// Applying CORS middleware at the beginning
+app.use(cors());
 
 // Body parser middleware
 app.use(bodyParser.json());
