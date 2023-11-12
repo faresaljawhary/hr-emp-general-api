@@ -11,7 +11,7 @@ const app = express();
 const { port } = config.app;
 
 const corsOptions = {
-  origin: "*", // Change this to a specific domain in production for security
+  origin: "https://npc-hr-general-employment.onrender.com", // Change this to a specific domain in production for security
   credentials: true,
 };
 // Applying CORS middleware at the beginning
