@@ -10,24 +10,20 @@ import celebrateErrorHandler from "./utils/celebrateError.js";
 const app = express();
 const { port } = config.app;
 
+const corsOptions = {
+  origin: "*", // Change this to a specific domain in production for security
+  credentials: true,
+  methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
+};
+// Applying CORS middleware at the beginning
+app.use(cors(corsOptions));
+
 // Body parser middleware
 app.use(bodyParser.json());
 
 // Serve static files from the "uploads" directory
 app.use(express.static("uploads"));
-app.use(function (req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
-  );
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-Requested-With,content-type"
-  );
-  res.setHeader("Access-Control-Allow-Credentials", true);
-  next();
-});
+
 // Add a route for direct download
 app.get("/download/:filename", (req, res) => {
   const filename = req.params.filename;
