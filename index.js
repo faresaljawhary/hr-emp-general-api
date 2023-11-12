@@ -11,11 +11,11 @@ const app = express();
 const { port } = config.app;
 
 const corsOptions = {
-  origin: "*", // Change this to a specific domain in production for security
+  origin: "https://npc-hr-general-employment.onrender.com",
   credentials: true,
   methods: ["GET", "POST", "DELETE", "UPDATE", "PUT", "PATCH"],
 };
-// Applying CORS middleware at the beginning
+
 app.use(cors(corsOptions));
 
 // Body parser middleware
