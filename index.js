@@ -16,10 +16,7 @@ app.use(bodyParser.json());
 // Serve static files from the "uploads" directory
 app.use(express.static("uploads"));
 app.use(function (req, res, next) {
-  res.setHeader(
-    "Access-Control-Allow-Origin",
-    "https://npc-hr-general-employment.onrender.com"
-  );
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST, OPTIONS, PUT, PATCH, DELETE"
