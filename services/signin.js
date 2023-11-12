@@ -2,11 +2,10 @@ import jwt from "jsonwebtoken";
 
 import config from "./../config/index.js";
 import crypto from "crypto";
-import { readFile } from "fs/promises";
-import { fileURLToPath } from "url";
-import { dirname, resolve } from "path";
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import { readFile } from 'fs/promises';
 
-import { error } from "console";
 
 function decrypt(encryptedText) {
   const algorithm = config.encrypt.algorithm;
@@ -23,31 +22,31 @@ function decrypt(encryptedText) {
   return decryptedText;
 }
 
+
 const signInAndCheckHrGroup = async (username, password) => {
-  const modulePath = dirname(fileURLToPath(import.meta.url));
-  const rawData = await readFile(
-    resolve(modulePath, "../hr-users.json"),
-    "utf8"
-  );
-  const jsonData = JSON.parse(rawData)?.users?.find(
-    (user) => user.username === username
-  );
 
   try {
+    const rawData = await readFile('./hr-users.json', 'utf8');
+    const jsonData = JSON.parse(rawData)?.users?.find(
+      (user) => user.username === username
+    );
+
     const decryptedPassword = decrypt(jsonData.password);
+    
     let isMemberOfHrGroup;
     if (Object.keys(jsonData)?.length >= 0 && password === decryptedPassword) {
       isMemberOfHrGroup = true;
     } else {
-      throw error;
+      throw new Error('Invalid username or password');
     }
+
     if (isMemberOfHrGroup) {
       const payload = {
         username,
       };
 
       const token = jwt.sign(payload, config.auth.securityCode, {
-        expiresIn: "1h",
+        expiresIn: '1h',
       });
 
       return {
@@ -62,10 +61,10 @@ const signInAndCheckHrGroup = async (username, password) => {
       };
     }
   } catch (error) {
-    console.error("Error during authentication and group check:", error);
+    console.error('Error during authentication and group check:', error);
     return {
       statusCode: 401,
-      message: "Invalid username or password",
+      message: 'Invalid username or password',
     };
   }
 };
