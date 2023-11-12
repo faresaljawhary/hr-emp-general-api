@@ -1,4 +1,6 @@
 import express from "express";
+import cors from "cors";
+
 import {
   addGeneralApplication,
   getAllGeneralApplication,
@@ -29,6 +31,7 @@ router.post(
 );
 router.get(
   "/general-from",
+  cors(),
   verifyBearerToken,
 
   getAllGeneralApplication
