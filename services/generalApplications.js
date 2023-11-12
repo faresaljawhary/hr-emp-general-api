@@ -249,6 +249,7 @@ async function updateDownloadValueForUser(params, body) {
     return {
       statusCode: 200,
       message: "Success",
+      records:jsonData?.users
     };
   } catch (err) {
     return {
