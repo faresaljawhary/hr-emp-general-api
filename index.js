@@ -10,14 +10,27 @@ import celebrateErrorHandler from "./utils/celebrateError.js";
 const app = express();
 const { port } = config.app;
 
-app.options("*", cors());
-
 // Body parser middleware
 app.use(bodyParser.json());
 
 // Serve static files from the "uploads" directory
 app.use(express.static("uploads"));
-
+app.use(function (req, res, next) {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://npc-hr-general-employment.onrender.com"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
+  next();
+});
 // Add a route for direct download
 app.get("/download/:filename", (req, res) => {
   const filename = req.params.filename;
