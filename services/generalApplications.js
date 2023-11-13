@@ -100,7 +100,7 @@ async function createApplicationData(req) {
     // Rename the file to the new UUID-based name
     await rename(filePath, newFilePath);
     // Copy the file to the "upload" folder
-    const uploadFolderPath = "/uploads"; // Specify the path to your "upload" folder
+    const uploadFolderPath = "./uploads"; // Specify the path to your "upload" folder
     await mkdir(uploadFolderPath, { recursive: true });
 
     const uploadFilePath = join(uploadFolderPath, newFileName);

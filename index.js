@@ -22,7 +22,7 @@ app.use(express.static("uploads"));
 // Add a route for direct download
 app.get("/download/:filename", (req, res) => {
   const filename = req.params.filename;
-  const filePath = `/uploads/${filename}`;
+  const filePath = `./uploads/${filename}`;
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
       res.status(404).send("File not found");
