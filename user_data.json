@@ -1,3 +1,55 @@
 {
-  "users": []
+  "users": [
+    {
+      "Gender": "M",
+      "Full_Name": "fares aljawhary",
+      "Birth_Place": "Palestine",
+      "Birth_Date": "1980-02-06T11:27:58.559Z",
+      "Relegin": "Muslim",
+      "Nationality": "Jordan",
+      "Address_City": "Amman",
+      "Address_BuildingNo": "33",
+      "Address_Street": "test",
+      "Address_Phone1": "799957997",
+      "Address_Region": "test",
+      "National_Num": "2554744753",
+      "Work_Place": "Administration",
+      "Marriage_Status": "Married",
+      "Demand_Position": "Administration Officer",
+      "Mother_Name": "test",
+      "Degree_Type": "Bachelor's Degree",
+      "Major": "Computer Science",
+      "University_Name": "University of Jordan",
+      "GPA": "3",
+      "English_Proficiency": "Basic",
+      "Arabic_Proficiency": "Professional",
+      "Radio1": "No",
+      "Radio2": "No",
+      "Agree_Info": "Y",
+      "Agree_Address": "Y",
+      "UUID": "498fadee-0499-4cfc",
+      "Work_Experiences": [
+        {
+          "id": "9902911d-789b-44dd-b08c-be98907cb1af",
+          "workplace": "test",
+          "position": "tet",
+          "startDate": "2023-01-13T10:28:46.668Z",
+          "endDate": "2023-11-13T10:28:48.109Z",
+          "salary": 222
+        }
+      ],
+      "Address_Phone2": null,
+      "Passport_Num": null,
+      "Explanation_Radio1": null,
+      "Explanation_Radio2": null,
+      "Explanation_Date_Radio2": null,
+      "Attachments": [
+        "HREMP_498fadee-0499-4cfc-05.pdf",
+        "HREMP_498fadee-0499-4cfc-06.jpg",
+        "HREMP_498fadee-0499-4cfc-07.png",
+        "HREMP_498fadee-0499-4cfc-01.json"
+      ],
+      "Download": true
+    }
+  ]
 }
