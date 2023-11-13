@@ -4,6 +4,8 @@ import config from "./config/index.js";
 import router from "./api/v1/index.js";
 import bodyParser from "body-parser";
 import fs from "fs";
+import cron from "node-cron";
+import axios from "axios";
 
 import celebrateErrorHandler from "./utils/celebrateError.js";
 
@@ -37,6 +39,19 @@ app.use("/api/v1", router);
 
 // Error handler for celebrate validation errors
 app.use(celebrateErrorHandler);
+
+// Define a cron job to call the /api/v1 endpoint every 10 minutes
+cron.schedule("*/10 * * * *", async () => {
+  try {
+    // Make a GET request to your API endpoint
+    const response = await axios.get(
+      "https://api-general-form.onrender.com/api/v1/refresh-api"
+    );
+    console.log("API called:", response.data); // Log the response data
+  } catch (error) {
+    console.error("Error calling API:", error);
+  }
+});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
