@@ -30,7 +30,6 @@ router.post(
 router.get(
   "/general-from",
   verifyBearerToken,
-
   getAllGeneralApplication
 );
 router.put("/general-from", verifyBearerToken, updateDownloadValue);
