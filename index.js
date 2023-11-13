@@ -45,11 +45,11 @@ cron.schedule("*/10 * * * *", async () => {
   try {
     // Make a GET request to your API endpoint
     const response = await axios.get(
-      "https://api-general-form.onrender.com/api/v1/refresh-api"
+      "https://api-general-hr.onrender.com/api/v1/refresh-api"
     );
     console.log("API called:", response.data); // Log the response data
   } catch (error) {
-    console.error("Error calling API:", error);
+    console.error("Error calling API:");
   }
 });
 
